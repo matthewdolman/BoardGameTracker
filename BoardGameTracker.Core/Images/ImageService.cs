@@ -79,6 +79,7 @@ public class ImageService : IImageService
         _logger.LogDebug("Saving uploaded image of type {UploadType}", type);
         string folder;
         string fullPath;
+        var shouldResize = true;
         switch (type)
         {
             case UploadFileType.Game:
@@ -88,6 +89,13 @@ public class ImageService : IImageService
             case UploadFileType.Profile:
                 folder = PathHelper.ProfileImagePath;
                 fullPath = PathHelper.FullProfileImagePath;
+                break;
+            case UploadFileType.ShelfPhoto:
+                // A shelf photo is for human review, not a square cover thumbnail — keep its
+                // original aspect ratio so suggestion cards can actually show what was scanned.
+                folder = PathHelper.ShelfPhotoPath;
+                fullPath = PathHelper.FullShelfPhotoPath;
+                shouldResize = false;
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(type), type, null);
@@ -128,7 +136,10 @@ public class ImageService : IImageService
 
         buffered.Position = 0;
         using var image = await Image.LoadAsync(buffered);
-        image.Mutate(x => x.Resize(ImageSize, ImageSize));
+        if (shouldResize)
+        {
+            image.Mutate(x => x.Resize(ImageSize, ImageSize));
+        }
 
         var outputFileName = Path.ChangeExtension(file.FileName, ".webp");
         var newFileName = await _diskProvider.WriteFile(image, outputFileName, fullPath, WebpImageEncoder);
@@ -157,6 +168,7 @@ public class ImageService : IImageService
     {
         _diskProvider.ClearFolder(PathHelper.FullCoverImagePath);
         _diskProvider.ClearFolder(PathHelper.FullProfileImagePath);
+        _diskProvider.ClearFolder(PathHelper.FullShelfPhotoPath);
     }
 
     private static async Task<byte[]?> ReadWithLimitAsync(HttpContent content, long maxBytes)

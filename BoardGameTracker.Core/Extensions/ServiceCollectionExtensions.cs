@@ -35,6 +35,8 @@ using BoardGameTracker.Core.Players;
 using BoardGameTracker.Core.Players.Interfaces;
 using BoardGameTracker.Core.Sessions;
 using BoardGameTracker.Core.Sessions.Interfaces;
+using BoardGameTracker.Core.Suggestions;
+using BoardGameTracker.Core.Suggestions.Interfaces;
 using BoardGameTracker.Core.Common;
 using BoardGameTracker.Core.GameNights;
 using BoardGameTracker.Core.GameNights.Interfaces;
@@ -92,6 +94,8 @@ public static class ServiceCollectionExtensions
         serviceCollection.AddScoped<IEmailService, EmailService>();
         serviceCollection.AddScoped<ISmtpSender, MailKitSmtpSender>();
         serviceCollection.AddScoped<IPublicUrlBuilder, PublicUrlBuilder>();
+        serviceCollection.AddScoped<IApiTokenService, ApiTokenService>();
+        serviceCollection.AddScoped<ISuggestionService, SuggestionService>();
         serviceCollection.AddScoped<IPlayerService, PlayerService>();
         serviceCollection.AddScoped<ISessionService, SessionService>();
         serviceCollection.AddScoped<ILocationService, LocationService>();

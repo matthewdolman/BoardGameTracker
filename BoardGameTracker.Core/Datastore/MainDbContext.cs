@@ -29,6 +29,8 @@ public class MainDbContext : IdentityDbContext<ApplicationUser>
     public DbSet<Loan> Loans { get; set; }
     public DbSet<GameNight> GameNights { get; set; }
     public DbSet<RefreshToken> RefreshTokens { get; set; }
+    public DbSet<ApiToken> ApiTokens { get; set; }
+    public DbSet<PendingGameSuggestion> PendingGameSuggestions { get; set; }
     public DbSet<OidcProvider> OidcProviders { get; set; }
     public DbSet<ExternalLogin> ExternalLogins { get; set; }
 
@@ -58,6 +60,7 @@ public class MainDbContext : IdentityDbContext<ApplicationUser>
         BuildGameNights(builder);
         BuildAuthEntities(builder);
         BuildConfig(builder);
+        BuildApiToken(builder);
 
         SeedDatabase(builder);
     }
@@ -66,6 +69,13 @@ public class MainDbContext : IdentityDbContext<ApplicationUser>
     {
         builder.Entity<Config>()
             .HasIndex(x => x.Key)
+            .IsUnique();
+    }
+
+    private static void BuildApiToken(ModelBuilder builder)
+    {
+        builder.Entity<ApiToken>()
+            .HasIndex(x => x.TokenHash)
             .IsUnique();
     }
 

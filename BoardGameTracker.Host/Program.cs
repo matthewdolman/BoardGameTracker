@@ -319,6 +319,7 @@ app.UseCors("Allow");
 
 app.UseRateLimiter();
 app.UseAuthDisabledMiddleware();
+app.UseApiKeyAuthMiddleware();
 app.UseAuthentication();
 app.UseAuthorization();
 
@@ -351,6 +352,12 @@ app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(PathHelper.FullProfileImagePath),
     RequestPath = "/images/profile"
+});
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(PathHelper.FullShelfPhotoPath),
+    RequestPath = "/images/shelf"
 });
 
 var logger = app.Services.GetRequiredService<ILogger<Program>>();
@@ -427,6 +434,7 @@ static void CreateFolders(IServiceProvider serviceProvider)
     diskProvider.EnsureFolder(PathHelper.FullRootImagePath);
     diskProvider.EnsureFolder(PathHelper.FullCoverImagePath);
     diskProvider.EnsureFolder(PathHelper.FullProfileImagePath);
+    diskProvider.EnsureFolder(PathHelper.FullShelfPhotoPath);
     diskProvider.EnsureFolder(PathHelper.FullManualsPath);
 }
 

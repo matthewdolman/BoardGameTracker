@@ -4,4 +4,5 @@ public enum UploadFileType
 {
     Profile,
     Game,
+    ShelfPhoto,
 }

@@ -8,10 +8,12 @@ public static class PathHelper
 
     public static readonly string CoverImagePath = Path.Combine(ImagesPath, "cover");
     public static readonly string ProfileImagePath = Path.Combine(ImagesPath, "profile");
+    public static readonly string ShelfPhotoPath = Path.Combine(ImagesPath, "shelf");
 
     public static readonly string FullRootImagePath = Path.Combine(CurrentDir, ImagesPath);
     public static readonly string FullCoverImagePath = Path.Combine(CurrentDir, CoverImagePath);
     public static readonly string FullProfileImagePath = Path.Combine(CurrentDir, ProfileImagePath);
+    public static readonly string FullShelfPhotoPath = Path.Combine(CurrentDir, ShelfPhotoPath);
 
     public static readonly string FullManualsPath = Path.Combine(CurrentDir, ManualsPath);
     public static readonly string FullManualFiguresPath = Path.Combine(CurrentDir, ManualsPath, "figures");
