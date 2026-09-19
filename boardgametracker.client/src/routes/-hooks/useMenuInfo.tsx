@@ -4,6 +4,7 @@ import CogIcon from "@/assets/icons/cog.svg?react";
 import Game from "@/assets/icons/gamepad.svg?react";
 import HomeIcon from "@/assets/icons/home.svg?react";
 import LeftRightArrowIcon from "@/assets/icons/left-right-arrow.svg?react";
+import ListIcon from "@/assets/icons/list.svg?react";
 import MapPinIcon from "@/assets/icons/map-pin.svg?react";
 import PlusIcon from "@/assets/icons/plus.svg?react";
 import TrendUp from "@/assets/icons/trend-up.svg?react";
@@ -35,6 +36,12 @@ export const menuItems: MenuItem[] = [
 		path: "/games",
 		icon: Game,
 		mobileVisible: true,
+	},
+	{
+		menuLabel: "review-queue:title",
+		path: "/review-queue",
+		icon: ListIcon,
+		mobileVisible: false,
 	},
 	{
 		menuLabel: "common:players",

@@ -1,0 +1,26 @@
+{
+	"title": "Review Queue",
+	"empty": {
+		"title": "No suggestions to review",
+		"description": "When an agent scans a shelf photo, candidate games to add will show up here for you to approve, reject, or send back."
+	},
+	"matched": "BGG match",
+	"unmatched": "No BGG match found",
+	"approve": "Approve",
+	"reject": "Reject",
+	"retry": "Send back",
+	"confirm": "Confirm",
+	"cancel": "Cancel",
+	"notes": {
+		"reject-placeholder": "Optional reason (not this edition, duplicate...)",
+		"retry-placeholder": "Optional note for another attempt (wrong edition, blurry title...)"
+	},
+	"notifications": {
+		"approved": "Added to your collection",
+		"approve-failed": "Failed to approve suggestion",
+		"rejected": "Suggestion rejected",
+		"reject-failed": "Failed to reject suggestion",
+		"retry-requested": "Sent back for another attempt",
+		"retry-failed": "Failed to request a retry"
+	}
+}

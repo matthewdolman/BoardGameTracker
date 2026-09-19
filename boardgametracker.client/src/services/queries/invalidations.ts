@@ -117,6 +117,12 @@ export class QueryInvalidator {
 		});
 	}
 
+	async invalidateSuggestions() {
+		await this.queryClient.invalidateQueries({
+			queryKey: [QUERY_KEYS.suggestions],
+		});
+	}
+
 	async invalidateShames() {
 		await this.queryClient.invalidateQueries({
 			queryKey: [QUERY_KEYS.shames],

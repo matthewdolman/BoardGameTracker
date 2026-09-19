@@ -45,3 +45,4 @@ export * from "./Settings/ChangeDetectionConfigStatus";
 export * from "./Settings/Environment";
 export * from "./Settings/Language";
 export * from "./Settings/Settings";
+export * from "./Suggestion/Suggestion";

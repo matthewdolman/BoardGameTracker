@@ -13,6 +13,7 @@ import { Route as BareRouteImport } from './routes/_bare'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ShamesIndexRouteImport } from './routes/shames/index'
 import { Route as SettingsIndexRouteImport } from './routes/settings/index'
+import { Route as ReviewQueueIndexRouteImport } from './routes/review-queue/index'
 import { Route as PlayersIndexRouteImport } from './routes/players/index'
 import { Route as LocationsIndexRouteImport } from './routes/locations/index'
 import { Route as LoansIndexRouteImport } from './routes/loans/index'
@@ -58,6 +59,11 @@ const ShamesIndexRoute = ShamesIndexRouteImport.update({
 const SettingsIndexRoute = SettingsIndexRouteImport.update({
   id: '/settings/',
   path: '/settings/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReviewQueueIndexRoute = ReviewQueueIndexRouteImport.update({
+  id: '/review-queue/',
+  path: '/review-queue/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PlayersIndexRoute = PlayersIndexRouteImport.update({
@@ -218,6 +224,7 @@ export interface FileRoutesByFullPath {
   '/loans/': typeof LoansIndexRoute
   '/locations/': typeof LocationsIndexRoute
   '/players/': typeof PlayersIndexRoute
+  '/review-queue/': typeof ReviewQueueIndexRoute
   '/settings/': typeof SettingsIndexRoute
   '/shames/': typeof ShamesIndexRoute
   '/games/$gameId/sessions': typeof GamesGameIdSessionsRoute
@@ -250,6 +257,7 @@ export interface FileRoutesByTo {
   '/loans': typeof LoansIndexRoute
   '/locations': typeof LocationsIndexRoute
   '/players': typeof PlayersIndexRoute
+  '/review-queue': typeof ReviewQueueIndexRoute
   '/settings': typeof SettingsIndexRoute
   '/shames': typeof ShamesIndexRoute
   '/games/$gameId/sessions': typeof GamesGameIdSessionsRoute
@@ -284,6 +292,7 @@ export interface FileRoutesById {
   '/loans/': typeof LoansIndexRoute
   '/locations/': typeof LocationsIndexRoute
   '/players/': typeof PlayersIndexRoute
+  '/review-queue/': typeof ReviewQueueIndexRoute
   '/settings/': typeof SettingsIndexRoute
   '/shames/': typeof ShamesIndexRoute
   '/games/$gameId_/sessions': typeof GamesGameIdSessionsRoute
@@ -318,6 +327,7 @@ export interface FileRouteTypes {
     | '/loans/'
     | '/locations/'
     | '/players/'
+    | '/review-queue/'
     | '/settings/'
     | '/shames/'
     | '/games/$gameId/sessions'
@@ -350,6 +360,7 @@ export interface FileRouteTypes {
     | '/loans'
     | '/locations'
     | '/players'
+    | '/review-queue'
     | '/settings'
     | '/shames'
     | '/games/$gameId/sessions'
@@ -383,6 +394,7 @@ export interface FileRouteTypes {
     | '/loans/'
     | '/locations/'
     | '/players/'
+    | '/review-queue/'
     | '/settings/'
     | '/shames/'
     | '/games/$gameId_/sessions'
@@ -412,6 +424,7 @@ export interface RootRouteChildren {
   LoansIndexRoute: typeof LoansIndexRoute
   LocationsIndexRoute: typeof LocationsIndexRoute
   PlayersIndexRoute: typeof PlayersIndexRoute
+  ReviewQueueIndexRoute: typeof ReviewQueueIndexRoute
   SettingsIndexRoute: typeof SettingsIndexRoute
   ShamesIndexRoute: typeof ShamesIndexRoute
   GamesGameIdSessionsRoute: typeof GamesGameIdSessionsRoute
@@ -451,6 +464,13 @@ declare module '@tanstack/react-router' {
       path: '/settings'
       fullPath: '/settings/'
       preLoaderRoute: typeof SettingsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/review-queue/': {
+      id: '/review-queue/'
+      path: '/review-queue'
+      fullPath: '/review-queue/'
+      preLoaderRoute: typeof ReviewQueueIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/players/': {
@@ -681,6 +701,7 @@ const rootRouteChildren: RootRouteChildren = {
   LoansIndexRoute: LoansIndexRoute,
   LocationsIndexRoute: LocationsIndexRoute,
   PlayersIndexRoute: PlayersIndexRoute,
+  ReviewQueueIndexRoute: ReviewQueueIndexRoute,
   SettingsIndexRoute: SettingsIndexRoute,
   ShamesIndexRoute: ShamesIndexRoute,
   GamesGameIdSessionsRoute: GamesGameIdSessionsRoute,

@@ -28,4 +28,5 @@ export const QUERY_KEYS = {
 	gameNightStatistics: "gameNightStatistics",
 	profile: "profile",
 	users: "users",
+	suggestions: "suggestions",
 };

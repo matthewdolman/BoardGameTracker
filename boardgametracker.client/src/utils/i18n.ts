@@ -30,6 +30,7 @@ const namespaces = [
 	"badges",
 	"rsvp",
 	"auth",
+	"review-queue",
 ] as const;
 
 let translationFilePath = "/locales/{{lng}}/{{ns}}.json";
