@@ -123,6 +123,12 @@ export class QueryInvalidator {
 		});
 	}
 
+	async invalidateApiTokens() {
+		await this.queryClient.invalidateQueries({
+			queryKey: [QUERY_KEYS.apiTokens],
+		});
+	}
+
 	async invalidateShames() {
 		await this.queryClient.invalidateQueries({
 			queryKey: [QUERY_KEYS.shames],

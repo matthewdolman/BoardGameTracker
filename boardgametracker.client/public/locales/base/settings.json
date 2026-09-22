@@ -167,6 +167,10 @@
 		"account": {
 			"title": "Account",
 			"description": "Profile & user management"
+		},
+		"api-tokens": {
+			"title": "API Tokens",
+			"description": "Manage access for external apps and agents"
 		}
 	},
 	"bgg": {
@@ -305,6 +309,41 @@
 			"user-updated": "User updated successfully",
 			"user-update-failed": "Failed to update user",
 			"password-reset-failed": "Failed to reset password"
+		}
+	},
+	"api-tokens": {
+		"title": "API Tokens",
+		"description": "Long-lived tokens for external apps and agents to access this app's API without a user login.",
+		"name": "Name",
+		"created": "Created",
+		"last-used": "Last used",
+		"never-used": "Never",
+		"revoked": "Revoked",
+		"create-button": "Create token",
+		"no-tokens": "No API tokens yet.",
+		"create": {
+			"title": "Create API Token",
+			"description": "Give it a name so you remember what it's for (e.g. the app or agent that will use it).",
+			"name": {
+				"label": "Name"
+			},
+			"save": "Create token"
+		},
+		"new-token": {
+			"title": "API Token Created",
+			"description": "Token \"{{name}}\" created. Copy it now — it won't be shown again.",
+			"copy": "Copy to clipboard",
+			"copied": "Copied!"
+		},
+		"revoke": {
+			"button": "Revoke",
+			"description": "Are you sure you want to revoke \"{{name}}\"? Anything using this token will immediately lose access. This cannot be undone."
+		},
+		"notifications": {
+			"created": "API token created successfully",
+			"create-failed": "Failed to create API token",
+			"revoked": "API token revoked",
+			"revoke-failed": "Failed to revoke API token"
 		}
 	},
 	"changedetection": {

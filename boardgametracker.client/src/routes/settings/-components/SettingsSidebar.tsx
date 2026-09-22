@@ -5,7 +5,14 @@ import { BgtSimpleSelect } from "@/components/BgtForm/BgtSimpleSelect";
 import { BgtText } from "@/components/BgtText/BgtText";
 import { useAuth } from "@/hooks/useAuth";
 
-export type SettingsCategory = "general" | "shelf-of-shame" | "game-nights" | "bgg" | "advanced" | "account";
+export type SettingsCategory =
+	| "general"
+	| "shelf-of-shame"
+	| "game-nights"
+	| "bgg"
+	| "advanced"
+	| "account"
+	| "api-tokens";
 
 interface CategoryItem {
 	id: SettingsCategory;
@@ -43,6 +50,11 @@ const CATEGORIES: CategoryItem[] = [
 		id: "advanced",
 		label: "settings:sidebar.advanced.title",
 		description: "settings:sidebar.advanced.description",
+	},
+	{
+		id: "api-tokens",
+		label: "settings:sidebar.api-tokens.title",
+		description: "settings:sidebar.api-tokens.description",
 	},
 ];
 

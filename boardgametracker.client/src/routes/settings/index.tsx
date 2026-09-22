@@ -14,6 +14,7 @@ import { getEnvironment, getLanguages, getSettings } from "@/services/queries/se
 import { handleFormSubmit } from "@/utils/formUtils";
 import { AccountSettings } from "./-components/AccountSettings";
 import { AdvancedSettings } from "./-components/AdvancedSettings";
+import { ApiTokensSettings } from "./-components/ApiTokensSettings";
 import { BggSettings } from "./-components/BggSettings";
 import { GameNightsSettings } from "./-components/GameNightsSettings";
 import { GeneralSettings } from "./-components/GeneralSettings";
@@ -111,6 +112,8 @@ function SettingsPageContent({ settings, languages, isSaving, saveSettings }: Se
 				return <AdvancedSettings form={form} disabled={isSaving} />;
 			case "account":
 				return <AccountSettings />;
+			case "api-tokens":
+				return <ApiTokensSettings />;
 			default:
 				return <GeneralSettings form={form} languages={languages} disabled={isSaving} />;
 		}
@@ -130,7 +133,7 @@ function SettingsPageContent({ settings, languages, isSaving, saveSettings }: Se
 					/>
 
 					<div className="flex-1">
-						{activeCategory === "account" ? (
+						{activeCategory === "account" || activeCategory === "api-tokens" ? (
 							content
 						) : (
 							<form onSubmit={handleFormSubmit(form)}>

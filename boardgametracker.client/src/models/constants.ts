@@ -29,4 +29,5 @@ export const QUERY_KEYS = {
 	profile: "profile",
 	users: "users",
 	suggestions: "suggestions",
+	apiTokens: "apiTokens",
 };
