@@ -1,5 +1,5 @@
 {
-	"title": "Review Queue",
+	"title": "Approval Queue",
 	"empty": {
 		"title": "No suggestions to review",
 		"description": "When an agent scans a shelf photo, candidate games to add will show up here for you to approve, reject, or send back."
